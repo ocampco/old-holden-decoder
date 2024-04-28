@@ -1,6 +1,5 @@
-import Time from './Time';
 import './App.css';
 
-const App = () => <Time />;
+const App = () => <h1>old-holden-decoder</h1>;
 
 export default App;
