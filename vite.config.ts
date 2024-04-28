@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 const config = defineConfig({
+  base: '/old-holden-decoder/',
   plugins: [react()],
   test: {
     globals: true,
