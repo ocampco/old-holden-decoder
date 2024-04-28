@@ -1,7 +1,6 @@
-# :runner: ui-runner-vite
+# :lion: old-holden-decoder
 
-Simple ui runner using [vite](https://vitejs.dev/), configured for:
-
+- [vite](https://vitejs.dev/)
 - [react](https://react.dev/)
 - [typescript](https://www.typescriptlang.org/)
 - [vitest](https://vitest.dev/)
