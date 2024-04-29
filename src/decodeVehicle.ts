@@ -3,7 +3,7 @@ const regex = /^(\d)([A-Z]{2})(\d{2})([A-Z])([A-Z])([A-Z]\d)(\d{5})([A-Z])$/i;
 const decodeVehicle = (vin: string): Error | (string | null)[] => {
   const match = vin.match(regex);
 
-  if (!match) return new Error();
+  if (!match) return new Error('VIN is not valid or cannot be decoded');
 
   // TODO: Move hardcoded mapping
   return [
