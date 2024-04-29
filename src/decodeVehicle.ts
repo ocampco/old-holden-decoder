@@ -15,7 +15,7 @@ export enum VehiclePropertyEnum {
 const regex = /^(\d)([A-Z]{2})(\d{2})([A-Z])([A-Z])([A-Z]\d)(\d{5})([A-Z])$/i;
 
 const decodeVehicle = (vin: string): Error | Vehicle => {
-  const match = vin.match(regex);
+  const match = vin.toUpperCase().match(regex);
 
   if (!match) return new Error('VIN is not valid or cannot be decoded');
 
