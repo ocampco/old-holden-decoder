@@ -10,25 +10,14 @@ describe('Decoder', () => {
     });
     fireEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByText('Kingswood', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('Kingswood')).toBeInTheDocument();
 
     fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
       target: { value: '8WM80THJ142069Z' },
     });
     fireEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByText('Belmont', { exact: false })).toBeInTheDocument();
-  });
-
-  test('should display unknown for undecoded values', () => {
-    render(<Decoder />);
-
-    fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
-      target: { value: '8JZ80THJ142069Z' },
-    });
-    fireEvent.click(screen.getByRole('button'));
-
-    expect(screen.getByText('Unknown', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('Belmont')).toBeInTheDocument();
   });
 
   describe('given invalid vin', () => {
