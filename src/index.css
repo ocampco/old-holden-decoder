@@ -25,9 +25,13 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  /* TODO: move to var */
+  @media (min-width: 480px) {
+    place-items: center;
+  }
 }
 
 h1 {
