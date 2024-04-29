@@ -1,5 +1,6 @@
+import Decoder from './Decoder';
 import './App.css';
 
-const App = () => <h1>old-holden-decoder</h1>;
+const App = () => <Decoder />;
 
 export default App;
