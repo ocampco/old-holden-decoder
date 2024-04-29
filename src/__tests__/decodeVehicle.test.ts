@@ -1,7 +1,7 @@
 import decodeVehicle, { VehiclePropertyEnum } from '../decodeVehicle';
 
 describe('decodeVehicle', () => {
-  test('return decoded vin', () => {
+  test('should decode vin', () => {
     const expected = [
       [VehiclePropertyEnum.Division, 'Holden'],
       [VehiclePropertyEnum.Luxury, 'Kingswood'],
@@ -16,14 +16,14 @@ describe('decodeVehicle', () => {
     expect(decodeVehicle('8WN80THJ142069Z')).toEqual(expected);
   });
 
-  test('return null if section unrecognised', () => {
+  test('should return null value if section is unrecognised', () => {
     expect(decodeVehicle('9WN80THJ142069Z')).toContainEqual([
       VehiclePropertyEnum.Division,
       null,
     ]);
   });
 
-  test('return error if incorrect length', () => {
+  test('should return error if incorrect length', () => {
     expect(decodeVehicle('8WN80THJ1420420Z')).toBeInstanceOf(Error);
   });
 });
