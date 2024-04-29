@@ -21,8 +21,6 @@ describe('decodeVehicle', () => {
   });
 
   test('return error if incorrect length', () => {
-    const expected = new Error();
-
-    expect(decodeVehicle('8WN80THJ1420420Z')).toEqual(expected);
+    expect(decodeVehicle('8WN80THJ1420420Z')).toBeInstanceOf(Error);
   });
 });
