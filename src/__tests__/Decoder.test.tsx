@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import Decoder from '../Decoder';
+import Decoder from '../components/Decoder';
 
 describe('Decoder', () => {
   test('should decode vins', () => {

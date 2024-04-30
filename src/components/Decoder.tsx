@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import Results from './components/Results';
-import decodeVehicle from './decodeVehicle';
+import Results from './Results';
+import decodeVehicle from '../decodeVehicle';
 
 const Search = styled.form`
   display: flex;
