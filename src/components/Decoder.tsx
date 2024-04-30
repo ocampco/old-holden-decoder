@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { useLoaderData, useSearchParams } from 'react-router-dom';
 import Results from './Results';
 import decodeVehicle from '../decodeVehicle';
 
@@ -27,22 +28,22 @@ const Submit = styled.button`
 `;
 
 const Decoder = () => {
-  const [vin, setVin] = useState<string>('');
-  const [vehicle, setVehicle] = useState<Vehicle | null>(null);
-  const [error, setError] = useState<Error | null>(null);
+  // TODO: migrate away from loader hook
+  const data = useLoaderData() as DecodedVehicle;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [vin, setVin] = useState<string>(searchParams.get('vin') || '');
+  const [vehicle, setVehicle] = useState<null | Vehicle>(data.vehicle || null);
+  const [error, setError] = useState<null | Error>(data.error || null);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
+    const param = vin ? { vin } : undefined;
     const result = decodeVehicle(vin);
 
-    if (result instanceof Error) {
-      setVehicle(null);
-      setError(result);
-    } else {
-      setError(null);
-      setVehicle(result);
-    }
+    setSearchParams(param);
+    setVehicle(result.vehicle || null);
+    setError(result.error || null);
   };
 
   return (

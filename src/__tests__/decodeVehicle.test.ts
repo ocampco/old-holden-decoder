@@ -13,21 +13,31 @@ const expected: Vehicle = [
 
 describe('decodeVehicle', () => {
   test('should decode vin', () => {
-    expect(decodeVehicle('8WN80THJ142069Z')).toEqual(expected);
+    expect(decodeVehicle('8WN80THJ142069Z')).toEqual({ vehicle: expected });
   });
 
   test('should not care about casing', () => {
-    expect(decodeVehicle('8wn80thj142069z')).toEqual(expected);
+    expect(decodeVehicle('8wn80thj142069z')).toEqual({ vehicle: expected });
   });
 
   test('should return null value if section is unrecognised', () => {
-    expect(decodeVehicle('9WN80THJ142069Z')).toContainEqual([
+    expect(decodeVehicle('9WN80THJ142069Z').vehicle).toContainEqual([
       VehiclePropertyEnum.Division,
       null,
     ]);
   });
 
   test('should return error if incorrect length', () => {
-    expect(decodeVehicle('8WN80THJ1420420Z')).toBeInstanceOf(Error);
+    const result = decodeVehicle('8WN80THJ1420420Z');
+
+    expect(result).not.toHaveProperty('vehicle');
+    expect(result.error).toBeInstanceOf(Error);
+  });
+
+  test('should return error if cannot decode', () => {
+    const result = decodeVehicle('invalid');
+
+    expect(result).not.toHaveProperty('vehicle');
+    expect(result.error).toBeInstanceOf(Error);
   });
 });

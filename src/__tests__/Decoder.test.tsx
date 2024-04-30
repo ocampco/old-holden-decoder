@@ -1,9 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import Decoder from '../components/Decoder';
 
 describe('Decoder', () => {
   test('should decode vins', () => {
-    render(<Decoder />);
+    render(<Decoder />, { wrapper: BrowserRouter });
 
     fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
       target: { value: '8WN80THJ142069Z' },
@@ -22,7 +23,7 @@ describe('Decoder', () => {
 
   describe('given invalid vin', () => {
     test('should display error', () => {
-      render(<Decoder />);
+      render(<Decoder />, { wrapper: BrowserRouter });
 
       fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
         target: { value: 'invalid' },
@@ -35,7 +36,7 @@ describe('Decoder', () => {
     });
 
     test('should hide error after decoding valid vin', () => {
-      render(<Decoder />);
+      render(<Decoder />, { wrapper: BrowserRouter });
 
       fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
         target: { value: 'invalid' },
