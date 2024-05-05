@@ -1,4 +1,4 @@
-import decodeVehicle, { VehiclePropertyEnum } from '../decodeVehicle';
+import decodeVehicle, { VehiclePropertyEnum } from '../decoders/decodeVehicle';
 
 const expected: Vehicle = [
   [VehiclePropertyEnum.Division, 'Holden'],

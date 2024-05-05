@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Results from './Results';
-import decodeVehicle from '../decodeVehicle';
+import * as decoders from '../decoders/';
 
 const Search = styled.form`
   display: flex;
@@ -27,7 +27,7 @@ const Submit = styled.button`
   padding: 0.5rem 1rem;
 `;
 
-const getInitialResult = (vin: string) => (vin ? decodeVehicle(vin) : null);
+const getInitialResult = (vin: string) => (vin ? decoders.vehicle(vin) : null);
 
 const Decoder = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -40,7 +40,7 @@ const Decoder = () => {
     event.preventDefault();
 
     if (vin) {
-      const result = decodeVehicle(vin);
+      const result = decoders.vehicle(vin);
 
       setResult(result);
       setSearchParams({ vin });

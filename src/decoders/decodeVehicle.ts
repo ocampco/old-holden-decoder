@@ -1,4 +1,4 @@
-import * as vehicleCodes from './constants/vehicleCodes';
+import * as vehicleCodes from '../constants/vehicleCodes';
 
 // TODO: move out?
 export enum VehiclePropertyEnum {

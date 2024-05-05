@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Results from '../components/Results';
-import { VehiclePropertyEnum } from '../decodeVehicle';
+import { VehiclePropertyEnum } from '../decoders/decodeVehicle';
 
 const vehicle: Vehicle = [
   [VehiclePropertyEnum.Division, null],
