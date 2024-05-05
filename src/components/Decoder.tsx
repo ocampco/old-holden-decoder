@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { useLoaderData, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Results from './Results';
 import decodeVehicle from '../decodeVehicle';
 
@@ -27,23 +27,24 @@ const Submit = styled.button`
   padding: 0.5rem 1rem;
 `;
 
+const getInitialResult = (vin: string) => (vin ? decodeVehicle(vin) : null);
+
 const Decoder = () => {
-  // TODO: migrate away from loader hook
-  const data = useLoaderData() as DecodedVehicle;
   const [searchParams, setSearchParams] = useSearchParams();
   const [vin, setVin] = useState<string>(searchParams.get('vin') || '');
-  const [vehicle, setVehicle] = useState<null | Vehicle>(data.vehicle || null);
-  const [error, setError] = useState<null | Error>(data.error || null);
+  const [result, setResult] = useState<null | DecodedVehicle>(
+    getInitialResult(vin),
+  );
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    const param = vin ? { vin } : undefined;
-    const result = decodeVehicle(vin);
+    if (vin) {
+      const result = decodeVehicle(vin);
 
-    setSearchParams(param);
-    setVehicle(result.vehicle || null);
-    setError(result.error || null);
+      setResult(result);
+      setSearchParams({ vin });
+    }
   };
 
   return (
@@ -57,8 +58,8 @@ const Decoder = () => {
         />
         <Submit type="submit">Decode</Submit>
       </Search>
-      {error && <div>{error.message}</div>}
-      {vehicle && <Results vehicle={vehicle} />}
+      {result?.error && <div>{result?.error.message}</div>}
+      {result?.vehicle && <Results vehicle={result?.vehicle} />}
     </>
   );
 };

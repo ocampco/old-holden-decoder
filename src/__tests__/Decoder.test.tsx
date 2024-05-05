@@ -1,60 +1,95 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import Decoder from '../components/Decoder';
 
 describe('Decoder', () => {
-  test('should decode vins', () => {
-    render(<Decoder />, { wrapper: BrowserRouter });
+  describe('given vin from input', () => {
+    test('should decode', () => {
+      render(<Decoder />, { wrapper: MemoryRouter });
 
-    fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
-      target: { value: '8WN80THJ142069Z' },
+      fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
+        target: { value: '8WN80THJ142069Z' },
+      });
+      fireEvent.click(screen.getByRole('button'));
+
+      expect(screen.getByText('Kingswood')).toBeInTheDocument();
     });
-    fireEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByText('Kingswood')).toBeInTheDocument();
+    describe('given invalid vin', () => {
+      test('should display error', () => {
+        render(<Decoder />, { wrapper: MemoryRouter });
 
-    fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
-      target: { value: '8WM80THJ142069Z' },
+        fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
+          target: { value: 'invalid' },
+        });
+        fireEvent.click(screen.getByRole('button'));
+
+        expect(
+          screen.getByText('VIN is not valid or cannot be decoded'),
+        ).toBeInTheDocument();
+      });
+
+      test('should hide error after decoding valid vin', () => {
+        render(<Decoder />, { wrapper: MemoryRouter });
+
+        fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
+          target: { value: 'invalid' },
+        });
+        fireEvent.click(screen.getByRole('button'));
+
+        expect(
+          screen.getByText('VIN is not valid or cannot be decoded'),
+        ).toBeInTheDocument();
+
+        fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
+          target: { value: '8WM80THJ142069Z' },
+        });
+        fireEvent.click(screen.getByRole('button'));
+
+        expect(
+          screen.queryByText('VIN is not valid or cannot be decoded'),
+        ).not.toBeInTheDocument();
+      });
     });
-    fireEvent.click(screen.getByRole('button'));
-
-    expect(screen.getByText('Belmont')).toBeInTheDocument();
   });
 
-  describe('given invalid vin', () => {
-    test('should display error', () => {
-      render(<Decoder />, { wrapper: BrowserRouter });
+  describe('given vin from url', () => {
+    test('should decode', () => {
+      render(
+        <MemoryRouter
+          initialEntries={['/old-holden-decoder/?vin=8WN80THJ142069Z']}
+        >
+          <Decoder />
+        </MemoryRouter>,
+      );
 
-      fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
-        target: { value: 'invalid' },
-      });
-      fireEvent.click(screen.getByRole('button'));
-
-      expect(
-        screen.getByText('VIN is not valid or cannot be decoded'),
-      ).toBeInTheDocument();
+      expect(screen.getByText('Kingswood')).toBeInTheDocument();
     });
 
-    test('should hide error after decoding valid vin', () => {
-      render(<Decoder />, { wrapper: BrowserRouter });
+    describe('given invalid vin', () => {
+      test('should display error', () => {
+        render(
+          <MemoryRouter initialEntries={['/old-holden-decoder/?vin=invalid']}>
+            <Decoder />
+          </MemoryRouter>,
+        );
 
-      fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
-        target: { value: 'invalid' },
+        expect(
+          screen.getByText('VIN is not valid or cannot be decoded'),
+        ).toBeInTheDocument();
       });
-      fireEvent.click(screen.getByRole('button'));
 
-      expect(
-        screen.getByText('VIN is not valid or cannot be decoded'),
-      ).toBeInTheDocument();
+      test('should not decode if empty', () => {
+        render(
+          <MemoryRouter initialEntries={['/old-holden-decoder/?vin=']}>
+            <Decoder />
+          </MemoryRouter>,
+        );
 
-      fireEvent.change(screen.getByPlaceholderText('VIN', { exact: false }), {
-        target: { value: '8WM80THJ142069Z' },
+        expect(
+          screen.queryByText('VIN is not valid or cannot be decoded'),
+        ).not.toBeInTheDocument();
       });
-      fireEvent.click(screen.getByRole('button'));
-
-      expect(
-        screen.queryByText('VIN is not valid or cannot be decoded'),
-      ).not.toBeInTheDocument();
     });
   });
 });

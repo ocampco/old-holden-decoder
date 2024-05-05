@@ -1,12 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
-import * as loaders from './loaders';
 
 const routes = [
   {
     path: '/',
     element: <App />,
-    loader: loaders.decodeFromParams,
   },
 ];
 
