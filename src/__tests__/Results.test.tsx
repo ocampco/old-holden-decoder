@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import Results from '../components/Results';
-import { VehiclePropertyEnum } from '../decoders/decodeVehicle';
+import { VehicleProperty } from '../constants/vehicleCodes';
 
 const vehicle: Vehicle = [
-  [VehiclePropertyEnum.Division, null],
-  [VehiclePropertyEnum.Luxury, 'Kingswood'],
-  [VehiclePropertyEnum.Body, 'Panel Van'],
-  [VehiclePropertyEnum.Engine, '308 High Compression'],
-  [VehiclePropertyEnum.Year, '1978'],
-  [VehiclePropertyEnum.Assembly, 'Melbourne'],
-  [VehiclePropertyEnum.Serial, '42069'],
-  [VehiclePropertyEnum.Series, 'HZ 10/77'],
+  [VehicleProperty.Division, null],
+  [VehicleProperty.Luxury, 'Kingswood'],
+  [VehicleProperty.Body, 'Panel Van'],
+  [VehicleProperty.Engine, '308 High Compression'],
+  [VehicleProperty.Year, '1978'],
+  [VehicleProperty.Assembly, 'Melbourne'],
+  [VehicleProperty.Serial, '42069'],
+  [VehicleProperty.Series, 'HZ 10/77'],
 ];
 
 describe('Results', () => {

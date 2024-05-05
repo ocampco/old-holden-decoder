@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-type Vehicle = [VehiclePropertyEnum, string | null][];
+type Vehicle = [VehicleProperty, string | null][];
 
 type DecodedVehicle = {
   vehicle?: Vehicle;

@@ -1,3 +1,14 @@
+export enum VehicleProperty {
+  Division = 'GM Division',
+  Luxury = 'Luxury Code',
+  Body = 'Body Code',
+  Engine = 'Engine Code',
+  Year = 'Model Year',
+  Assembly = 'Assembly Plant',
+  Serial = 'Serial Number',
+  Series = 'Series Code',
+}
+
 export const division: Record<string, string> = {
   '8': 'Holden',
 };

@@ -1,14 +1,15 @@
-import decodeVehicle, { VehiclePropertyEnum } from '../decoders/decodeVehicle';
+import decodeVehicle from '../decoders/decodeVehicle';
+import { VehicleProperty } from '../constants/vehicleCodes';
 
 const expected: Vehicle = [
-  [VehiclePropertyEnum.Division, 'Holden'],
-  [VehiclePropertyEnum.Luxury, 'Kingswood'],
-  [VehiclePropertyEnum.Body, 'Utility'],
-  [VehiclePropertyEnum.Engine, '308 High Compression'],
-  [VehiclePropertyEnum.Year, '1978'],
-  [VehiclePropertyEnum.Assembly, 'Melbourne'],
-  [VehiclePropertyEnum.Serial, '42069'],
-  [VehiclePropertyEnum.Series, 'HZ 10/77'],
+  [VehicleProperty.Division, 'Holden'],
+  [VehicleProperty.Luxury, 'Kingswood'],
+  [VehicleProperty.Body, 'Utility'],
+  [VehicleProperty.Engine, '308 High Compression'],
+  [VehicleProperty.Year, '1978'],
+  [VehicleProperty.Assembly, 'Melbourne'],
+  [VehicleProperty.Serial, '42069'],
+  [VehicleProperty.Series, 'HZ 10/77'],
 ];
 
 describe('decodeVehicle', () => {
@@ -22,7 +23,7 @@ describe('decodeVehicle', () => {
 
   test('should return null value if section is unrecognised', () => {
     expect(decodeVehicle('9WN80THJ142069Z').vehicle).toContainEqual([
-      VehiclePropertyEnum.Division,
+      VehicleProperty.Division,
       null,
     ]);
   });
