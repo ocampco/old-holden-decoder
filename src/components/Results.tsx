@@ -1,4 +1,4 @@
-import { PropertyCell, Table, ValueCell } from "./Results.styles";
+import { PropertyCell, Table, ValueCell } from './Results.styles';
 
 const Results = ({ vehicle }: { vehicle: Vehicle }) => (
   <Table>
