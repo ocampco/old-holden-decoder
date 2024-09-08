@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import Results from './Results';
 import { Input, Search, Submit } from './Decoder.styles';
 import * as decoders from '../decoders/';
+import Header from './Header';
 
 const getInitialResult = (vin: string) => (vin ? decoders.vehicle(vin) : null);
 
@@ -26,6 +27,7 @@ const Decoder = () => {
 
   return (
     <>
+      <Header />
       <Search onSubmit={handleSubmit}>
         <Input
           type="text"
