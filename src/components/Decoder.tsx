@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Results from './Results';
-import { Input, Search, Submit } from './Decoder.styles';
+import { Heading, Input, Search, Submit } from './Decoder.styles';
 import * as decoders from '../decoders/';
 import Header from './Header';
 
@@ -37,6 +37,7 @@ const Decoder = () => {
         />
         <Submit type="submit">Decode</Submit>
       </Search>
+      {result && <Heading>Holden VIN decoder results for "{vin}"</Heading>}
       {result?.error && <div>{result?.error.message}</div>}
       {result?.vehicle && <Results vehicle={result?.vehicle} />}
     </>
