@@ -21,4 +21,6 @@ export const Input = styled.input`
 export const Submit = styled.button`
   flex: 1;
   padding: 0.5rem 1rem;
+  background-color: var(--var-button-primary);
+  color: var(--var-text-button);
 `;

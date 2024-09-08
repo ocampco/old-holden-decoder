@@ -1,6 +1,8 @@
 :root {
   --var-text-primary: #3D3B40;
   --var-text-secondary: #726E75;
+  --var-text-button: #FFF;
+  --var-button-primary: #C00000;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
