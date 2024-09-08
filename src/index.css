@@ -1,9 +1,12 @@
 :root {
+  --var-text-primary: #3D3B40;
+  --var-text-secondary: #726E75;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: #213547;
+  color: var(--var-text-primary);
   background-color: #ffffff;
 
   font-synthesis: none;
