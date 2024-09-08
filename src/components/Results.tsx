@@ -1,16 +1,4 @@
-import styled from 'styled-components';
-
-const Table = styled.table`
-  width: 100%;
-`;
-
-const PropertyCell = styled.th`
-  text-align: left;
-`;
-
-const ValueCell = styled.td`
-  text-align: left;
-`;
+import { PropertyCell, Table, ValueCell } from "./Results.styles";
 
 const Results = ({ vehicle }: { vehicle: Vehicle }) => (
   <Table>
