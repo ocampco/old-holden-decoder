@@ -21,6 +21,10 @@ describe('decodeVehicle', () => {
     expect(decodeVehicle('8wn80thj142069z')).toEqual({ vehicle: expected });
   });
 
+  test('should sanitise spaces', () => {
+    expect(decodeVehicle(' 8WN80THJ142069Z  ')).toEqual({ vehicle: expected });
+  });
+
   test('should return null value if section is unrecognised', () => {
     expect(decodeVehicle('9WN80THJ142069Z').vehicle).toContainEqual([
       VehicleProperty.Division,

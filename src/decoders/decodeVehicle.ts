@@ -3,7 +3,8 @@ import * as vehicleCodes from '../constants/vehicleCodes';
 const regex = /^(\d)([A-Z]{2})(\d{2})([A-Z])([A-Z])([A-Z]\d)(\d{5})([A-Z])$/i;
 
 const decodeVehicle = (vin: string): DecodedVehicle => {
-  const match = vin.toUpperCase().match(regex);
+  const sanitisedVin = vin.trim().toUpperCase();
+  const match = sanitisedVin.match(regex);
 
   if (!match)
     return { error: new Error('VIN is not valid or cannot be decoded') };
