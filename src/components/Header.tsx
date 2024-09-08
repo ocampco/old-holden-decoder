@@ -4,7 +4,7 @@ import { Container, Heading, Logo } from './Header.styles';
 const Header = () => (
   <Container>
     <Logo src={logo} alt="Holden logo" />
-    <Heading>VIN Decoder</Heading>
+    <Heading>OLD HOLDEN</Heading>
   </Container>
 );
 

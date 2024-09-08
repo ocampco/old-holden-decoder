@@ -11,8 +11,8 @@ export const Logo = styled.img`
   margin-right: 1rem;
 `;
 
-export const Heading = styled.h1`
+export const Heading = styled.div`
   text-align: start;
   font-size: 1.5rem;
-  margin: 0;
+  font-weight: 700;
 `;
