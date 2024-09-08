@@ -11,18 +11,18 @@
 ```sh
 # Install dependencies
 $ nvm use
-$ npm i
+$ pnpm i
 
 # Run UI
 # http://localhost:5173/
-$ npm run dev
+$ pnpm run dev
 
 # Run Vitest tests
-$ npm run test
+$ pnpm run test
 
 # Run eslint and prettier
-$ npm run lint
+$ pnpm run lint
 
 # Auto fix using prettier
-$ npm run lint:fix
+$ pnpm run lint:fix
 ```
