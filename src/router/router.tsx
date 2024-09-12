@@ -4,7 +4,7 @@ import Decoder from '../components/Decoder';
 
 const routes = [
   {
-    path: '/',
+    path: '/decode/vin',
     element: <Template><Decoder /></Template>,
   },
 ];
