@@ -7,7 +7,3 @@ export const Table = styled.table`
 export const PropertyCell = styled.th`
   text-align: left;
 `;
-
-export const ValueCell = styled.td`
-  text-align: left;
-`;

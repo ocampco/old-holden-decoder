@@ -3,7 +3,6 @@
   max-width: 640px;
   margin: 0 auto;
   padding: 1rem;
-  text-align: center;
 
   @media (min-width: 480px) {
     padding: 2rem;

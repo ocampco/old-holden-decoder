@@ -12,7 +12,6 @@ export const Logo = styled.img`
 `;
 
 export const Heading = styled.div`
-  text-align: start;
   font-size: 1.5rem;
   font-weight: 700;
 `;

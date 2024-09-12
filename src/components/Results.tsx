@@ -6,7 +6,7 @@ const Results = ({ vehicle }: { vehicle: Vehicle }) => (
       {vehicle.map(([property, value]) => (
         <tr key={`${property}-${value}`}>
           <PropertyCell scope="row">{property}</PropertyCell>
-          <ValueCell>{value ?? 'Unknown'}</ValueCell>
+          <td>{value ?? 'Unknown'}</td>
         </tr>
       ))}
     </tbody>

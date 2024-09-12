@@ -12,16 +12,6 @@ export const Search = styled.form`
   }
 `;
 
-export const Heading = styled.h1`
-  margin: 0 0 1rem 0;
-  text-align: start;
-  font-size: 1.25rem;
-
-  @media (min-width: 480px) {
-    font-size: 1.5rem;
-  }
-`;
-
 export const Input = styled.input`
   flex: 3;
   padding: 0.5rem 1rem;
@@ -33,4 +23,13 @@ export const Submit = styled.button`
   padding: 0.5rem 1rem;
   background-color: var(--var-button-primary);
   color: var(--var-text-button);
+`;
+
+export const Heading = styled.h1`
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+
+  @media (min-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
