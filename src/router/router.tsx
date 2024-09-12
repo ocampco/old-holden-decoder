@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Template from '../Template';
-import Decoder from '../components/Decoder';
+import Decoder from '../components/VehicleDecoder';
 
 const routes = [
   {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Results from './Results';
-import { Heading, Input, Search, Submit } from './Decoder.styles';
-import * as decoders from '../decoders/';
+import { Heading, Input, Search, Submit } from './VehicleDecoder.styles';
+import * as decoders from '../decoders';
 
 const getInitialResult = (vin: string) => (vin ? decoders.vehicle(vin) : null);
 

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Decoder from '../components/Decoder';
+import Decoder from '../components/VehicleDecoder';
 
 describe('Decoder', () => {
   describe('given vin from input', () => {
