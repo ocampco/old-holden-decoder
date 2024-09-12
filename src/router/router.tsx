@@ -1,10 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import App from '../App';
+import Template from '../Template';
+import Decoder from '../components/Decoder';
 
 const routes = [
   {
     path: '/',
-    element: <App />,
+    element: <Template><Decoder /></Template>,
   },
 ];
 
