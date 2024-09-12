@@ -1,6 +1,12 @@
+import Header from './components/Header';
 import Decoder from './components/Decoder';
 import './App.css';
 
-const App = () => <Decoder />;
+// TODO: Add linter
+const App = () => 
+    <>
+        <Header />
+        <Decoder />
+    </>;
 
 export default App;
