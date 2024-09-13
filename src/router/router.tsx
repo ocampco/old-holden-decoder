@@ -1,11 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Template from '../Template';
-import Decoder from '../components/VehicleDecoder';
+import VehicleDecoder from '../components/VehicleDecoder';
+import EngineDecoder from '../components/EngineDecoder';
 
 const routes = [
   {
     path: '/decode/vin',
-    element: <Template><Decoder /></Template>,
+    element: <Template><VehicleDecoder /></Template>,
+  },
+  {
+    path: '/decode/engine-number',
+    element: <Template><EngineDecoder /></Template>,
   },
 ];
 
