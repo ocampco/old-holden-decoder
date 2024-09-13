@@ -15,3 +15,17 @@ export const Heading = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
 `;
+
+export const Links = styled.nav`
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+`;
+
+export const Link = styled.a`
+  margin-right: 1rem;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+`
