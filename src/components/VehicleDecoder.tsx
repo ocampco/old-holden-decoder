@@ -6,7 +6,7 @@ import * as decoders from '../decoders';
 
 const getInitialResult = (vin: string) => (vin ? decoders.vehicle(vin) : null);
 
-const Decoder = () => {
+const VehicleDecoder = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const submittedVin = searchParams.get('vin') || '';
   const [inputVin, setInputVin] = useState<string>(submittedVin);
@@ -45,4 +45,4 @@ const Decoder = () => {
   );
 };
 
-export default Decoder;
+export default VehicleDecoder;
