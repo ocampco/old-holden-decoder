@@ -6,11 +6,19 @@ import EngineDecoder from '../components/EngineDecoder';
 const routes = [
   {
     path: '/decode/vin',
-    element: <Template><VehicleDecoder /></Template>,
+    element: (
+      <Template>
+        <VehicleDecoder />
+      </Template>
+    ),
   },
   {
     path: '/decode/engine-number',
-    element: <Template><EngineDecoder /></Template>,
+    element: (
+      <Template>
+        <EngineDecoder />
+      </Template>
+    ),
   },
 ];
 

@@ -9,7 +9,9 @@ const getInitialResult = (vin: string) => (vin ? decoders.vehicle(vin) : null);
 const EngineDecoder = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const submittedEngineNumber = searchParams.get('engineNumber') || '';
-  const [inputEngineNumber, setInputEngineNumber] = useState<string>(submittedEngineNumber);
+  const [inputEngineNumber, setInputEngineNumber] = useState<string>(
+    submittedEngineNumber,
+  );
   const [result, setResult] = useState<null | DecodedVehicle>(
     getInitialResult(submittedEngineNumber),
   );
@@ -37,7 +39,11 @@ const EngineDecoder = () => {
         />
         <Submit type="submit">Decode</Submit>
       </Search>
-      {result && <Heading>Holden engine number decoder results for "{submittedEngineNumber}"</Heading>}
+      {result && (
+        <Heading>
+          Holden engine number decoder results for "{submittedEngineNumber}"
+        </Heading>
+      )}
       {result?.error && <div>{result?.error.message}</div>}
       {result?.vehicle && <Results vehicle={result?.vehicle} />}
     </>

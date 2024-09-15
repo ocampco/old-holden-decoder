@@ -28,4 +28,4 @@ export const Link = styled.a`
   &:last-of-type {
     margin-right: 0;
   }
-`
+`;

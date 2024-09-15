@@ -36,7 +36,9 @@ const Decoder = () => {
         />
         <Submit type="submit">Decode</Submit>
       </Search>
-      {result && <Heading>Holden VIN decoder results for "{submittedVin}"</Heading>}
+      {result && (
+        <Heading>Holden VIN decoder results for "{submittedVin}"</Heading>
+      )}
       {result?.error && <div>{result?.error.message}</div>}
       {result?.vehicle && <Results vehicle={result?.vehicle} />}
     </>
