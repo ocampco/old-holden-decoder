@@ -4,7 +4,8 @@ import Results from './Results';
 import { Heading, Input, Search, Submit } from './VehicleDecoder.styles';
 import * as decoders from '../decoders';
 
-const getInitialResult = (vin: string) => (vin ? decoders.vehicle(vin) : null);
+const getInitialResult = (engineNumber: string) =>
+  engineNumber ? decoders.engine(engineNumber) : null;
 
 const EngineDecoder = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,7 +13,7 @@ const EngineDecoder = () => {
   const [inputEngineNumber, setInputEngineNumber] = useState<string>(
     submittedEngineNumber,
   );
-  const [result, setResult] = useState<null | DecodedVehicle>(
+  const [result, setResult] = useState<null | DecodedEngine>(
     getInitialResult(submittedEngineNumber),
   );
 
@@ -20,7 +21,7 @@ const EngineDecoder = () => {
     event.preventDefault();
 
     if (inputEngineNumber) {
-      const result = decoders.vehicle(inputEngineNumber);
+      const result = decoders.engine(inputEngineNumber);
 
       setResult(result);
       setSearchParams({ engineNumber: inputEngineNumber });
@@ -45,7 +46,7 @@ const EngineDecoder = () => {
         </Heading>
       )}
       {result?.error && <div>{result?.error.message}</div>}
-      {result?.vehicle && <Results vehicle={result?.vehicle} />}
+      {result?.engine && <Results data={result?.engine} />}
     </>
   );
 };
